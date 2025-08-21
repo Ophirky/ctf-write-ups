@@ -20,7 +20,6 @@ I hope you find these write-ups helpful. I uploaded them with the intention of s
 
 of course when reading the write-ups the flags will not be supplied. they will be hidden using `[flag🤫]`
 
----
 ## 🔍 Challenges
 
 ### 🛠️ [pwnable.kr](http://pwnable.kr)
