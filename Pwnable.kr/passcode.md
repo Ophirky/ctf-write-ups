@@ -123,3 +123,5 @@ To validate this I ran the program again in GDB and searched for the address of 
 | #3  | 0xffdb7208   |
 
 Now I was really stuck and had to figure out another way to know what to put in `passcode1`.
+Since I was stuck I started building a mind map to work with a more organized chart of ideas.
+You can view the map using [xmind](https://xmind.com) and view the map of this CTF -> [passcode](./Mind%20Maps/passcode.xmind)
