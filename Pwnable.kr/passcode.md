@@ -155,6 +155,7 @@ libc.so.6       0xf7d2f7d6 'setregid'
 | ------------------------ | --------- |
 | GOT printf reference     | 0x804c010 |
 | Inner If statement block | 0x8048364 |
+
 **Now all that was left to do was to build the payload and run!**
 
 Getting decimal view of the addresses
