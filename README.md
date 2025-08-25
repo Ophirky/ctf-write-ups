@@ -28,7 +28,7 @@ of course when reading the write-ups the flags will not be supplied. they will b
 - [`collision`](./Pwnable.kr/collision.md)
 - [`bof`](./Pwnable.kr/bof.md)
 - [`cmd2`](./Pwnable.kr/cmd2.md)
-- [`passcode`](./Pwnable.kr/passcode.md) — _unpwned_
+- [`passcode`](./Pwnable.kr/passcode.md)
 
 ---
 ### 🕸️[XSS Game](https://xss-game.appspot.com/)
