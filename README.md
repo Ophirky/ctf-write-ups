@@ -59,31 +59,31 @@ Most are undocumented...
 7. Rust fixme 1
 8. RED
 9. Verify
-10. Scan Surprise
-11. WebDecode
-12. Unminify
-13. Time Machine
-14. Super SSH
-15. endianness
-16. Commitment Issues
-17. CanYouSee
-18. Bookmarklet
-19. binhexa
-20. Local Authority
-21. Inspect HTML
-22. Includes
-23. infromation
-24. Cookies
-25. Scavenger Hunt
-26. GET aHEAD
-27. dont-use-client-side
-28. logon
-29. Glory of the Garden
-30. Insp3ct0r
-31. vault-door-training
-32. where are the robots
+- Scan Surprise
+- WebDecode
+- Unminify
+- Time Machine
+- Super SSH
+- endianness
+- Commitment Issues
+- CanYouSee
+- Bookmarklet
+- binhexa
+- Local Authority
+- Inspect HTML
+- Includes
+- infromation
+- Cookies
+- Scavenger Hunt
+- GET aHEAD
+-  dont-use-client-side
+- logon
+- Glory of the Garden
+- Insp3ct0r
+- vault-door-training
+- where are the robots
 
 **Medium**
-33. Trickster
-34. Java Code Analysis!?!
-35. findme
+- Trickster
+- Java Code Analysis!?!
+- findme
