@@ -29,6 +29,7 @@ of course when reading the write-ups the flags will not be supplied. they will b
 - [`bof`](./Pwnable.kr/bof.md)
 - [`cmd2`](./Pwnable.kr/cmd2.md)
 - [`passcode`](./Pwnable.kr/passcode.md)
+- [input2](./Pwnable.kr/input2.md) - unsolved
 
 ---
 ### 🕸️[XSS Game](https://xss-game.appspot.com/)
@@ -40,3 +41,49 @@ of course when reading the write-ups the flags will not be supplied. they will b
 - [`level #6`](./XSS%20Game/Level%206.md)
 
 ---
+
+### 🍘[crackmes.one](https://crackmes.one)
+1. [keygenme](./Crackmes.one/keygenme.md) - unsolved
+
+---
+### 🅿️[PicoCTF](https://picoctf.org) 
+Most are undocumented...
+
+**Easy**
+1. SSTI1
+2. n0s4n1ty 1
+3. head-dump
+4. Flag Hunters
+5. FANTASY CTF
+6. Cookie monster Secret Recipe
+7. Rust fixme 1
+8. RED
+9. Verify
+10. Scan Surprise
+11. WebDecode
+12. Unminify
+13. Time Machine
+14. Super SSH
+15. endianness
+16. Commitment Issues
+17. CanYouSee
+18. Bookmarklet
+19. binhexa
+20. Local Authority
+21. Inspect HTML
+22. Includes
+23. infromation
+24. Cookies
+25. Scavenger Hunt
+26. GET aHEAD
+27. dont-use-client-side
+28. logon
+29. Glory of the Garden
+30. Insp3ct0r
+31. vault-door-training
+32. where are the robots
+
+**Medium**
+33. Trickster
+34. Java Code Analysis!?!
+35. findme
