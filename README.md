@@ -50,15 +50,15 @@ of course when reading the write-ups the flags will not be supplied. they will b
 Most are undocumented...
 
 **Easy**
-1. SSTI1
-2. n0s4n1ty 1
-3. head-dump
-4. Flag Hunters
-5. FANTASY CTF
-6. Cookie monster Secret Recipe
-7. Rust fixme 1
-8. RED
-9. Verify
+- SSTI1
+- n0s4n1ty 1
+- head-dump
+- Flag Hunters
+- FANTASY CTF
+- Cookie monster Secret Recipe
+- Rust fixme 1
+- RED
+- Verify
 - Scan Surprise
 - WebDecode
 - Unminify
@@ -76,7 +76,7 @@ Most are undocumented...
 - Cookies
 - Scavenger Hunt
 - GET aHEAD
--  dont-use-client-side
+- dont-use-client-side
 - logon
 - Glory of the Garden
 - Insp3ct0r
