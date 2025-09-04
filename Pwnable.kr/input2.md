@@ -261,3 +261,8 @@ printf("Stage 3 clear!\n");
 ```
 
 So I needed to create an env variable that was named `\xde\xad\xbe\xef` and contained `"\xca\xfe\xba\xbe"`.
+
+## Stopping The challenge
+This CTF consisted of following a pre-defined path rather than requiring independent research, which made the experience less engaging and was not what. I was looking for.
+
+Maybe I'll come back to it in the future...

@@ -29,7 +29,7 @@ of course when reading the write-ups the flags will not be supplied. they will b
 - [`bof`](./Pwnable.kr/bof.md)
 - [`cmd2`](./Pwnable.kr/cmd2.md)
 - [`passcode`](./Pwnable.kr/passcode.md)
-- [input2](./Pwnable.kr/input2.md) - unsolved
+- [input2](./Pwnable.kr/input2.md) - unfinished
 
 ---
 ### 🕸️[XSS Game](https://xss-game.appspot.com/)
